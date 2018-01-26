@@ -9,13 +9,7 @@ import { Router } from '@angular/router';
 export class ListarComponent {
     public people: People;
 
-    constructor(private service: ObservableService, private router: Router) {
-        this.service.getPeople().subscribe((people) => {
-            if (people !== null) {
-                this.people = people;
-            } else {
-                this.router.navigate(['/']);
-            }
-        });
+    constructor(private service: ObservableService) {
+        this.service.getPeople().subscribe((people) => this.people = people);
     }
 }

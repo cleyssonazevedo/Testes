@@ -5,6 +5,7 @@ import { HomeComponent } from '../pages/home/home.component';
 import { ListarComponent } from '../pages/listar/listar.component';
 import { FrameComponent } from '../pages/frame/frame.component';
 import { ErrorComponent } from '../pages/error/error.component';
+import { GuardService } from '../providers/guard.service';
 
 const routes: Route[] = [
     {
@@ -14,11 +15,12 @@ const routes: Route[] = [
             {
                 path: '',
                 pathMatch: 'full',
-                component: HomeComponent
+                component: HomeComponent,
             },
             {
                 path: 'list',
-                component: ListarComponent
+                component: ListarComponent,
+                canActivate: [GuardService]
             },
             {
                 path: 'frame',

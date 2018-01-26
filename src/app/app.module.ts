@@ -10,6 +10,7 @@ import { ObservableService } from '../providers/observable.service';
 import { ListarComponent } from '../pages/listar/listar.component';
 import { FrameComponent } from '../pages/frame/frame.component';
 import { ErrorComponent } from '../pages/error/error.component';
+import { GuardService } from '../providers/guard.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { ErrorComponent } from '../pages/error/error.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [ ObservableService ],
+  providers: [ ObservableService, GuardService ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
