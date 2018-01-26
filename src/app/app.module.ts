@@ -36,6 +36,6 @@ import { AppComponent } from './app.component';
 export class AppModule {
   constructor(@Inject(PLATFORM_ID) private platformId: Object, @Inject(APP_ID) private appId: string) {
     const platform = isPlatformBrowser(this.platformId) ? 'on the server' : 'on the browser';
-    console.log(`Running in ${platform} with AppId=${this.appId}`);
+    console.warn(`Running ${platform} with AppId=${this.appId}`);
   }
 }
