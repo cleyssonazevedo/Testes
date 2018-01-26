@@ -10,8 +10,13 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent {
     public people: People;
-    constructor (@Inject(DOCUMENT) private document: Document, private meta: Meta, private title: Title, private service: ObservableService, private router: Router) {
-        this.people = new People();
+    constructor (
+        @Inject(DOCUMENT) private document: Document,
+        private meta: Meta,
+        private title: Title,
+        private service: ObservableService,
+        private router: Router ) {
+            this.people = new People();
     }
 
     save() {

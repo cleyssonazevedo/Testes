@@ -9,13 +9,15 @@ import { HomeComponent } from '../pages/home/home.component';
 import { ObservableService } from '../providers/observable.service';
 import { ListarComponent } from '../pages/listar/listar.component';
 import { FrameComponent } from '../pages/frame/frame.component';
+import { ErrorComponent } from '../pages/error/error.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ListarComponent,
-    FrameComponent
+    FrameComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule.withServerTransition({

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ObservableService } from '../../providers/observable.service';
 import { People } from '../../models/models';
-import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
     templateUrl: './listar.component.html',
@@ -9,12 +9,12 @@ import { Location } from '@angular/common';
 export class ListarComponent {
     public people: People;
 
-    constructor(private service: ObservableService, private location: Location) {
+    constructor(private service: ObservableService, private router: Router) {
         this.service.getPeople().subscribe((people) => {
-            if(people !== null) {
+            if (people !== null) {
                 this.people = people;
             } else {
-                this.location.back();
+                this.router.navigate(['/']);
             }
         });
     }
