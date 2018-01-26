@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { CanActivate } from '@angular/router';
+import { Router, CanActivate } from '@angular/router';
 import { ObservableService } from './observable.service';
-import { Router } from '@angular/router';
 
 @Injectable()
 export class GuardService implements CanActivate {
