@@ -4,9 +4,9 @@ import { People } from '../../models/models';
 import { Router } from '@angular/router';
 
 @Component({
-    templateUrl: './listar.component.html',
+    templateUrl: './list.component.html',
 })
-export class ListarComponent {
+export class ListComponent {
     public people: People;
 
     constructor(private service: ObservableService) {

@@ -1,13 +1,14 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 @Component({
-    templateUrl: './error.component.html',
-    styleUrls: ['./error.component.scss']
+    templateUrl: './notFound.component.html',
+    styleUrls: ['./notFound.component.scss']
 })
-export class ErrorComponent  implements OnDestroy {
+export class NotFoundComponent  implements OnDestroy {
     private oldTitle: string;
-    constructor (private title: Title, private meta: Meta) {
+    constructor (private title: Title, private meta: Meta, private router: Router) {
         this.oldTitle = this.title.getTitle();
         this.title.setTitle('página não encontrada!');
 
@@ -15,6 +16,10 @@ export class ErrorComponent  implements OnDestroy {
             name: 'robots',
             content: 'noindex'
         });
+    }
+
+    home() {
+        this.router.navigate(['/']);
     }
 
     ngOnDestroy() {

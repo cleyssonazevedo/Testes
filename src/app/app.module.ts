@@ -3,30 +3,32 @@ import { BrowserModule } from '@angular/platform-browser';
 import { isPlatformBrowser, CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HomeComponent } from '../pages/home/home.component';
-import { ObservableService } from '../providers/observable.service';
-import { ListarComponent } from '../pages/listar/listar.component';
-import { FrameComponent } from '../pages/frame/frame.component';
-import { ErrorComponent } from '../pages/error/error.component';
+import { HomeModule } from '../pages/home/home.module';
+import { NotFoundModule } from '../pages/error/notFound.module';
+import { ListModule } from '../pages/listar/list.module';
+import { FrameModule } from '../pages/frame/frame.module';
+
 import { GuardService } from '../providers/guard.service';
 
+import { ObservableService } from '../providers/observable.service';
+
+import { AppComponent } from './app.component';
+
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    ListarComponent,
-    FrameComponent,
-    ErrorComponent
-  ],
+  declarations: [ AppComponent ],
   imports: [
     BrowserModule.withServerTransition({
       appId: 'server-side'
     }),
     CommonModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+
+    HomeModule,
+    ListModule,
+    FrameModule,
+    NotFoundModule
   ],
   providers: [ ObservableService, GuardService ],
   bootstrap: [AppComponent]

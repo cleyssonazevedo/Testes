@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Route } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from '../pages/home/home.component';
-import { ListarComponent } from '../pages/listar/listar.component';
+import { ListComponent } from '../pages/listar/list.component';
 import { FrameComponent } from '../pages/frame/frame.component';
-import { ErrorComponent } from '../pages/error/error.component';
 import { GuardService } from '../providers/guard.service';
+import { NotFoundComponent } from '../pages/error/notFound.component';
 
 const routes: Route[] = [
     {
@@ -19,7 +19,7 @@ const routes: Route[] = [
             },
             {
                 path: 'list',
-                component: ListarComponent,
+                component: ListComponent,
                 canActivate: [GuardService]
             },
             {
@@ -28,7 +28,11 @@ const routes: Route[] = [
             },
             {
                 path: '**',
-                component: ErrorComponent
+                redirectTo: 'error'
+            },
+            {
+                path: 'error',
+                component: NotFoundComponent
             }
         ]
     },
