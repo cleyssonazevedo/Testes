@@ -4,14 +4,9 @@ import { isPlatformBrowser, CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
-import { HomeModule } from '../pages/home/home.module';
-import { NotFoundModule } from '../pages/error/notFound.module';
-import { ListModule } from '../pages/listar/list.module';
-import { FrameModule } from '../pages/frame/frame.module';
 
-import { GuardService } from '../providers/guard.service';
-
-import { ObservableService } from '../providers/observable.service';
+import { HomeModule, ListModule, FrameModule, NotFoundModule } from '../pages/pages';
+import { ObservableService, GuardService } from '../providers/providers';
 
 import { AppComponent } from './app.component';
 
