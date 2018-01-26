@@ -10,6 +10,6 @@ export class ListComponent {
     public people: People;
 
     constructor(private service: ObservableService) {
-        this.service.getPeople().subscribe((people) => this.people = people);
+        this.service.getPeople().subscribe((people) => this.people = people).unsubscribe();
     }
 }
