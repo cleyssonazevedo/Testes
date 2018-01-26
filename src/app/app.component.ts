@@ -12,6 +12,6 @@ export class AppComponent {
       content: 'testes de server side com Angular e injeção de meta Tags'
     });
 
-    this.document.documentElement.lang = 'pt-BR';
+    this.document.documentElement.lang = 'en-US';
   }
 }
