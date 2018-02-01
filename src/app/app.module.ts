@@ -4,14 +4,18 @@ import { isPlatformBrowser, CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
-
-import { HomeModule, ListModule, FrameModule, NotFoundModule } from '../pages/pages';
-import { ObservableService, GuardService } from '../providers/providers';
-
 import { AppComponent } from './app.component';
 
+import { HomeModule, ListModule, FrameModule, NotFoundModule } from './pages/_pages';
+import { GuardService, ObservableService } from './providers/_providers';
+import * as DIRECTIVES from './directives/directives';
+
 @NgModule({
-  declarations: [ AppComponent ],
+  declarations: [
+    AppComponent,
+
+    DIRECTIVES.BootstrapInputDirective
+  ],
   imports: [
     BrowserModule.withServerTransition({
       appId: 'server-side'
@@ -26,7 +30,7 @@ import { AppComponent } from './app.component';
     NotFoundModule
   ],
   providers: [ GuardService ],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule {
   constructor(@Inject(PLATFORM_ID) private platformId: Object, @Inject(APP_ID) private appId: string, private injector: Injector) {

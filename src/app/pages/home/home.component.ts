@@ -1,8 +1,8 @@
 import { Component, Inject } from '@angular/core';
 import { DOCUMENT, Meta, Title } from '@angular/platform-browser';
 import { People } from '../../models/models';
-import { ObservableService } from '../../providers/observable.service';
 import { Router } from '@angular/router';
+import { ObservableService } from '../../providers/_providers';
 
 @Component({
     templateUrl: './home.component.html',

@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Route } from '@angular/router';
 import { AppComponent } from './app.component';
-import { HomeComponent } from '../pages/home/home.component';
-import { ListComponent } from '../pages/listar/list.component';
-import { FrameComponent } from '../pages/frame/frame.component';
-import { GuardService } from '../providers/guard.service';
-import { NotFoundComponent } from '../pages/error/notFound.component';
+
+import { HomeComponent, ListComponent, FrameComponent, NotFoundComponent } from './pages/_pages';
+import { GuardService } from './providers/_providers';
 
 const routes: Route[] = [
     {
