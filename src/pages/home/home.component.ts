@@ -1,16 +1,14 @@
-import { Component, Inject, OnDestroy } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { DOCUMENT, Meta, Title } from '@angular/platform-browser';
 import { People } from '../../models/models';
 import { ObservableService } from '../../providers/observable.service';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs/Subscription';
 
 @Component({
     templateUrl: './home.component.html',
     styleUrls: [ './home.component.scss' ]
 })
-export class HomeComponent implements OnDestroy {
-    public subscription: Subscription;
+export class HomeComponent {
     public people: People;
 
     constructor (
@@ -18,20 +16,24 @@ export class HomeComponent implements OnDestroy {
         private meta: Meta,
         private title: Title,
         private service: ObservableService,
-        private router: Router ) {
+        private router: Router) {
             this.people = new People();
+            this.meta.addTags([
+                {
+                    property: 'og:title',
+                    content: 'Home Component'
+                },
+                {
+                    property: 'og:description',
+                    content: 'Adição de conteúdo em um form e transmissão de dados via observable para outro component'
+                }
+            ]);
     }
 
     save() {
         console.log(this.people);
-        this.subscription = this.service.setPeople(Object.assign({}, this.people)).subscribe(() => {
+        this.service.setPeople(Object.assign({}, this.people)).subscribe(() => {
             this.router.navigate(['./list']);
-        });
-    }
-
-    ngOnDestroy() {
-        if (this.subscription !== undefined) {
-            this.subscription.unsubscribe();
-        }
+        }).unsubscribe();
     }
 }

@@ -16,8 +16,8 @@ export class GuardService implements CanActivate {
         if (!this.active) {
             this.router.navigate(['/']);
             return false;
+        } else {
+            return false;
         }
-
-        return true;
     }
 }
