@@ -31,9 +31,8 @@ export class HomeComponent {
     }
 
     save() {
-        console.log(this.people);
-        this.service.setPeople(Object.assign({}, this.people)).subscribe(() => {
-            this.router.navigate(['./list']);
-        }).unsubscribe();
+        this.service.setPeople(this.people)
+            .subscribe(() => this.router.navigate(['./list']))
+                .unsubscribe();
     }
 }

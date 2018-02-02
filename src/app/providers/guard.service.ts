@@ -6,18 +6,15 @@ import { ObservableService } from './observable.service';
 export class GuardService implements CanActivate {
     private active: boolean;
 
-    constructor (private service: ObservableService, private router: Router) {
-        this.service.getPeople().subscribe((people) => {
-            this.active = people !== undefined && people !== null;
-        });
-    }
+    constructor(private service: ObservableService, private router: Router) {  }
 
     canActivate(): boolean {
+        this.service.getPeople().subscribe((people) => this.active = people !== undefined && people !== null);
+
         if (!this.active) {
             this.router.navigate(['/']);
-            return false;
         } else {
-            return false;
+            return true;
         }
     }
 }
